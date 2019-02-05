@@ -130,7 +130,9 @@ def handle_can_message(message):
       rpms =  ((256*valuea)+valueb)/4.0
       print("ECM RPMs                : {}".format(rpms))
     if pid == 0x10:
-      maf = message.data[3]
+      valuea = message.data[3]
+      valueb = message.data[4]
+      maf =  ((256*valuea)+valueb)/4.0
       print ("MAF Air Flow Rate      : {}".format(maf))
 
 def send_iothub_message():
